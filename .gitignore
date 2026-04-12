@@ -1,0 +1,42 @@
+# Terraform
+.terraform/
+.terraform.lock.hcl
+terraform.tfstate
+terraform.tfstate.backup
+*.tfvars
+
+# Credenciais e segredos
+.env
+*.pem
+*.key
+*.p12
+*.crt
+credentials
+
+# AWS
+.aws/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+.pytest_cache/
+
+# Ansible
+*.retry
+ansible/roles/*/tests/
+
+# Docker
+.docker/
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Sistema
+.DS_Store
+Thumbs.db
