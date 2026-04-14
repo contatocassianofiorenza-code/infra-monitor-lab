@@ -15,3 +15,13 @@ variable "environment" {
   type        = string
   default     = "lab"
 }
+
+variable "allowed_ssh_cidr" {
+  description = "IP autorizado a acessar a EC2"
+  type        = string
+}
+
+variable "ami_id" {
+  description = "ID da AMI Ubuntu na us-east-1"
+  type        = string
+}
