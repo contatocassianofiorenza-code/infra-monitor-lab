@@ -1,0 +1,8 @@
+---
+- name: Configurar servidor de monitoramento
+  hosts: monitoring
+  gather_facts: yes
+
+  roles:
+    - common
+    - docker

@@ -1,0 +1,32 @@
+---
+- name: Atualizar cache do apt
+  apt:
+    update_cache: yes
+    cache_valid_time: 3600
+  become: yes
+
+- name: Atualizar pacotes do sistema
+  apt:
+    upgrade: dist
+  become: yes
+
+- name: Instalar pacotes utilitarios
+  apt:
+    name:
+      - curl
+      - wget
+      - git
+      - htop
+      - vim
+      - net-tools
+      - unzip
+      - ca-certificates
+      - gnupg
+      - lsb-release
+    state: present
+  become: yes
+
+- name: Configurar timezone para America/Sao_Paulo
+  timezone:
+    name: America/Sao_Paulo
+  become: yes
