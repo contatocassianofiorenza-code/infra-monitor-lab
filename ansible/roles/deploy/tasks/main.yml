@@ -1,0 +1,29 @@
+---
+- name: Sincronizar codigo da aplicacao para a EC2
+  synchronize:
+    src: "{{ playbook_dir }}/../../app/"
+    dest: /opt/monitoring/app/
+    delete: yes
+    rsync_opts:
+      - "--exclude=__pycache__"
+      - "--exclude=.pytest_cache"
+
+- name: Sincronizar configuracoes de monitoramento
+  synchronize:
+    src: "{{ playbook_dir }}/../../monitoring/"
+    dest: /opt/monitoring/monitoring/
+    delete: yes
+
+- name: Copiar docker-compose.yml para a EC2
+  copy:
+    src: "{{ playbook_dir }}/../../docker-compose.yml"
+    dest: /opt/monitoring/docker-compose.yml
+    owner: ubuntu
+    group: ubuntu
+    mode: '0644'
+
+- name: Subir os containers com Docker Compose
+  shell: docker compose up -d
+  args:
+    chdir: /opt/monitoring
+  become: yes
