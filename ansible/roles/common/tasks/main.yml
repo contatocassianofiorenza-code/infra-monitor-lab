@@ -30,3 +30,9 @@
   timezone:
     name: America/Sao_Paulo
   become: yes
+
+- name: Instalar AWS CLI
+  apt:
+    name: awscli
+    state: present
+  become: yes

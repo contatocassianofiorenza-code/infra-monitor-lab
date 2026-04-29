@@ -80,4 +80,4 @@ jobs:
       - name: Verificar saude da aplicacao
         run: |
           sleep 15
-          echo "Deploy concluido. Acessar via VPN: http://${{ secrets.EC2_HOST }}:5000/health"
+          echo "Deploy concluido com sucesso"
